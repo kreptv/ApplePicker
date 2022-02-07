@@ -1,12 +1,30 @@
+/*
+ * Created by: Haley Kelly
+ * Date Created: 1/31/2022
+ *
+ * Last Edited by: N/A
+ * Last Edited: 2/7/2022
+ *
+ * Description: 
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Basket : MonoBehaviour
 {
+    public Text scoreGT;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        GameObject scoreGO = GameObject.Find("score"); // score game object
+        scoreGT = scoreGO.GetComponent<Text>(); // text component of score game object
+        scoreGT.text = "0"; // set text component
 
     }
 
@@ -29,6 +47,10 @@ public class Basket : MonoBehaviour
       GameObject collidedWith = coll.gameObject;
       if (collidedWith.tag == "Apple"){
         Destroy(collidedWith);
+
+            int score = int.Parse(scoreGT.text);
+            score += 100;
+            scoreGT.text = score.ToString();
       }
     }
 }
