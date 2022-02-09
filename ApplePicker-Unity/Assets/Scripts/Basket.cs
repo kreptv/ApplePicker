@@ -5,7 +5,7 @@
  * Last Edited by: N/A
  * Last Edited: 2/7/2022
  *
- * Description: 
+ * Description:
  */
 
 
@@ -51,6 +51,10 @@ public class Basket : MonoBehaviour
             int score = int.Parse(scoreGT.text);
             score += 100;
             scoreGT.text = score.ToString();
+
+            if ( score > HighScore.score ){
+              HighScore.score = score;
+            }
       }
     }
 }
